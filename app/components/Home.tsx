@@ -88,6 +88,16 @@ export default function Home() {
               </Card>
             ))}
           </List>
+          <List>
+            {Object.entries(results.outdated_packages).map(([pkg, reason]) => (
+              <Card key={pkg} variant="outlined" sx={{ mb: 2 }}>
+                <CardContent>
+                  <Typography variant="subtitle1">{pkg}</Typography>
+                  <Typography variant="body2">{reason as string}</Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </List>
         </Box>
       )}
       <Snackbar open={!!error} autoHideDuration={6000} onClose={() => setError(null)}>
